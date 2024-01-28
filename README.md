@@ -8,3 +8,5 @@ prepend_previewers = [
   { name = "*.md", exec = "glow" },
 ]
 ```
+
+Make sure to have glow installed on your machine and added in PATH
