@@ -2,26 +2,22 @@ local M = {}
 
 function M:peek()
 	local child = Command("glow")
-		:args({
-			"--style",
-			"dark",
-			"--width",
-			tostring(self.area.h),
-			tostring(self.file.url),
-		})
-		:stdout(Command.PIPED)
-		:stderr(Command.PIPED)
-		:spawn()
-
-	ya.err("Got here")
+			:args({
+				"--style",
+				"dark",
+				"--width",
+				tostring(self.area.h),
+				tostring(self.file.url),
+			})
+			:stdout(Command.PIPED)
+			:stderr(Command.PIPED)
+			:spawn()
 
 	if not child then
 		return self:fallback_to_builtin()
 	end
 
-	ya.err("here we go 2")
 	local limit = self.area.h
-	ya.err(limit)
 	local i, lines = 0, ""
 	repeat
 		local next, event = child:read_line()
@@ -34,7 +30,6 @@ function M:peek()
 		i = i + 1
 		if i > self.skip then
 			lines = lines .. next
-			-- ya.err(next)
 		end
 	until i >= self.skip + limit
 
