@@ -1,6 +1,12 @@
-# Glow.yazi
+# glow.yazi
 
-Plugin for yazi to preview markdown files with glow. To install, clone the repo inside your `.config/yazi/plugins/` folder and change your `yazi.toml` settings adding:
+Plugin for [Yazi](https://github.com/sxyazi/yazi) to preview markdown files with [glow](https://github.com/charmbracelet/glow). To install, clone the repo inside your `~/.config/yazi/plugins/`:
+
+```bash
+git clone https://github.com/Reledia/glow.yazi.git
+```
+
+then include it in your `yazi.toml` to use:
 
 ```toml
 [plugin]
@@ -9,4 +15,4 @@ prepend_previewers = [
 ]
 ```
 
-Make sure to have glow installed on your machine and added in PATH
+Make sure you have [glow](https://github.com/charmbracelet/glow) installed, and can be found in `PATH`.
