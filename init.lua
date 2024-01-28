@@ -6,7 +6,7 @@ function M:peek()
 				"--style",
 				"dark",
 				"--width",
-				tostring(self.area.h),
+				tostring(self.area.w),
 				tostring(self.file.url),
 			})
 			:stdout(Command.PIPED)
