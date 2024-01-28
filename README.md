@@ -6,7 +6,7 @@ Plugin for [Yazi](https://github.com/sxyazi/yazi) to preview markdown files with
 git clone https://github.com/Reledia/glow.yazi.git
 ```
 
-then include it in your `yazi.toml` to use it:
+then include it in your `yazi.toml` to use:
 
 ```toml
 [plugin]
