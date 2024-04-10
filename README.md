@@ -11,7 +11,7 @@ then include it in your `yazi.toml` to use:
 ```toml
 [plugin]
 prepend_previewers = [
-  { name = "*.md", exec = "glow" },
+  { name = "*.md", run = "glow" },
 ]
 ```
 
