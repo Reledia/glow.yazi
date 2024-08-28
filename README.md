@@ -3,6 +3,8 @@
 Plugin for [Yazi](https://github.com/sxyazi/yazi) to preview markdown files with [glow](https://github.com/charmbracelet/glow). To install, clone the repo inside your `~/.config/yazi/plugins/`:
 
 ```bash
+ya pack -a Reledia/glow
+
 git clone https://github.com/Reledia/glow.yazi.git
 ```
 
