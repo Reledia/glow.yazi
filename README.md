@@ -1,9 +1,9 @@
 # glow.yazi
 
-Plugin for [Yazi](https://github.com/sxyazi/yazi) to preview markdown files with [glow](https://github.com/charmbracelet/glow). To install, clone the repo inside your `~/.config/yazi/plugins/`:
+Plugin for [Yazi](https://github.com/sxyazi/yazi) to preview markdown files with [glow](https://github.com/charmbracelet/glow). To install, run the below mentioned command:
 
 ```bash
-git clone https://github.com/Reledia/glow.yazi.git
+ya pack -a Reledia/glow
 ```
 
 then include it in your `yazi.toml` to use:
