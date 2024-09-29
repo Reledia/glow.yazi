@@ -9,6 +9,7 @@ function M:peek()
 				tostring(self.area.w),
 				tostring(self.file.url),
 			})
+			:env("CLICOLOR_FORCE", "1")
 			:stdout(Command.PIPED)
 			:stderr(Command.PIPED)
 			:spawn()
