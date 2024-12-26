@@ -1,6 +1,7 @@
 local M = {}
 
 function M:peek(job)
+
 	local child = Command("glow")
 		:args({
 			"--style",
@@ -43,8 +44,8 @@ function M:peek(job)
 	end
 end
 
-function M:seek(job)
-	require("code").seek(job)
+function M:seek(job, units)
+	require("code").seek(job, units)
 end
 
 return M
