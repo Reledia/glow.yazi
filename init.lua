@@ -1,12 +1,15 @@
 local M = {}
 
 function M:peek(job)
+	-- Set a fixed width of 55 characters for the preview
+	local preview_width = 55
+
 	local child = Command("glow")
 		:args({
 			"--style",
 			"dark",
 			"--width",
-			tostring(job.area.w),
+			tostring(preview_width),  -- Use fixed width instead of job.area.w
 			tostring(job.file.url),
 		})
 		:env("CLICOLOR_FORCE", "1")
@@ -49,12 +52,25 @@ end
 
 function M:seek(job)
 	local h = cx.active.current.hovered
-	if h and h.url == job.file.url then
-		ya.manager_emit('peek', {
-			math.max(0, cx.active.preview.skip + job.units),
-			only_if = job.file.url,
-		})
+	if not h or h.url ~= job.file.url then
+		return
 	end
+
+	local scroll_amount = 1
+	local scroll_offset = job.units
+
+	if job.key == "ctrl-e" then
+		scroll_offset = scroll_amount
+	elseif job.key == "ctrl-y" then
+		scroll_offset = -scroll_amount
+	else
+		scroll_offset = job.units
+	end
+
+	ya.manager_emit('peek', {
+		math.max(0, cx.active.preview.skip + scroll_offset),
+		only_if = job.file.url,
+	})
 end
 
 return M
