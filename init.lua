@@ -44,8 +44,14 @@ function M:peek(job)
 	end
 end
 
-function M:seek(job, units)
-	require("code").seek(job, units)
+function M:seek(job)
+  local h = cx.active.current.hovered
+  if h and h.url == job.file.url then
+    ya.manager_emit('peek', {
+      math.max(0, cx.active.preview.skip + job.units),
+      only_if = job.file.url,
+    })
+  end
 end
 
 return M
