@@ -1,7 +1,7 @@
 local M = {}
 
 function M:peek(job)
-	-- Set a fixed width of 55 characters for the preview
+	-- Set a fixed width of 50 characters for the preview
 	local preview_width = 55
 
 	local child = Command("glow")
@@ -55,20 +55,8 @@ function M:seek(job)
 	if not h or h.url ~= job.file.url then
 		return
 	end
-
-	local scroll_amount = 1
-	local scroll_offset = job.units
-
-	if job.key == "ctrl-e" then
-		scroll_offset = scroll_amount
-	elseif job.key == "ctrl-y" then
-		scroll_offset = -scroll_amount
-	else
-		scroll_offset = job.units
-	end
-
 	ya.manager_emit('peek', {
-		math.max(0, cx.active.preview.skip + scroll_offset),
+		math.max(0, cx.active.preview.skip + job.units),
 		only_if = job.file.url,
 	})
 end
