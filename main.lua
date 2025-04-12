@@ -39,13 +39,13 @@ function M:peek(job)
 
 	child:start_kill()
 	if job.skip > 0 and i < job.skip + limit then
-		ya.manager_emit("peek", { 
+		ya.mgr_emit("peek", { 
 			tostring(math.max(0, i - limit)), 
 			only_if = job.file.url,
 			upper_bound = true 
 		})
 	else
-		lines = lines:gsub("\t", string.rep(" ", PREVIEW.tab_size))
+		lines = lines:gsub("\t", string.rep(" ", rt.preview.tab_size))
 		ya.preview_widgets(job, { ui.Text.parse(lines):area(job.area) })
 	end
 end
@@ -55,7 +55,7 @@ function M:seek(job)
 	if not h or h.url ~= job.file.url then
 		return
 	end
-	ya.manager_emit('peek', {
+	ya.mgr_emit('peek', {
 		math.max(0, cx.active.preview.skip + job.units),
 		only_if = job.file.url,
 	})
