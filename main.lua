@@ -7,7 +7,7 @@ function M:peek(job)
 	local child = Command("glow")
 		:args({
 			"--style",
-			"dark",
+			"auto",
 			"--width",
 			tostring(preview_width),  -- Use fixed width instead of job.area.w
 			tostring(job.file.url),
