@@ -5,7 +5,7 @@ function M:peek(job)
 	local preview_width = 55
 
 	local child = Command("glow")
-		:args({
+		:arg({
 			"--style",
 			"dark",
 			"--width",
